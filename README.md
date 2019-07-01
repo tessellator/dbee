@@ -3,6 +3,9 @@
 dbee is a library that provides a convenient API for executing
 [HoneySQL](https://github.com/jkk/honeysql) queries.
 
+[![clojars badge](https://img.shields.io/clojars/v/tessellator/dbee.svg)](https://clojars.org/tessellator/dbee)
+[![cljdoc badge](https://cljdoc.org/badge/tessellator/dbee)](https://cljdoc.org/d/tessellator/dbee/CURRENT)
+
 
 ## Quick Start
 
