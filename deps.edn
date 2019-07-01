@@ -3,6 +3,7 @@
  :deps
  {hikari-cp                 {:mvn/version "2.7.1"}
   honeysql                  {:mvn/version "0.9.4"}
+  org.clojure/clojure       {:mvn/version "1.9.0"}
   org.clojure/java.jdbc     {:mvn/version "0.7.9"}
   org.clojure/tools.logging {:mvn/version "0.4.1"}}
 

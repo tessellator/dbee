@@ -16,6 +16,8 @@ information.
 
 ![](https://clojars.org/tessellator/dbee/latest-version.svg)
 
+dbee requires Clojure 1.9 or later.
+
 
 The following demonstrates calling `dbee.core/defdb` to create a database API
 in a namespace `myproject.db`. The `defdb` macro will create several functions

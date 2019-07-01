@@ -11,6 +11,8 @@ to connect to a database, you must provide a database adapter. You can find a
 list of adapters in the
 [hikari-cp docs](https://github.com/tomekw/hikari-cp#adapters-and-corresponding-datasource-class-names).
 
+dbee requires Clojure 1.9 or later.
+
 ### Logging
 
 dbee uses `tools.logging` internally for logging debug and warn messages. In
