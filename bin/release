@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Run tests
+bin/kaocha
+
+# Update dependences in POM
+clojure -Spom
+sed -i.bak '/^ *$/d' pom.xml # https://dev.clojure.org/jira/browse/TDEPS-29
+
+# Deploy to clojars
+mvn deploy

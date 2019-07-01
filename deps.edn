@@ -1,0 +1,15 @@
+{:paths ["src"]
+
+ :deps
+ {hikari-cp                 {:mvn/version "2.7.1"}
+  honeysql                  {:mvn/version "0.9.4"}
+  org.clojure/java.jdbc     {:mvn/version "0.7.9"}
+  org.clojure/tools.logging {:mvn/version "0.4.1"}}
+
+ :aliases
+ {:test
+  {:extra-deps {lambdaisland/kaocha {:mvn/version "0.0-521"}}
+   ;; The following adds some testing utilities upon which the dbee tests
+   ;; rely. Once the 0.5.0 version is released, the main dep should be
+   ;; updated and this override should be removed.
+   :override-deps {org.clojure/tools.logging {:mvn/version "0.5.0-alpha.1"}}}}}
