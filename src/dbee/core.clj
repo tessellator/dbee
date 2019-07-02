@@ -12,18 +12,18 @@
   The functions used with either use case accept a number of common options.
   Those options include the following:
 
-  * long-running-threshold
+  * `:long-running-threshold`
 
   The number of milliseconds to use as a long-running threshold. If queries
   exceed this value, a warning will be logged that includes the query and
   the run time. This value will override any default or configured value.
 
-  * row-fn
+  * `:row-fn`
 
   A function that will be executed against every row returned from the
   database. This value will override any default or configured value.
 
-  * result-set-fn
+  * `:result-set-fn`
 
   A function that will be applied to the entire returned result set."
   (:refer-clojure :exclude [get update])
@@ -69,9 +69,11 @@
 
   Examples:
 
+  ```clojure
   ;; Search for all users with the name \"John\".
   (all (-> :users
            (by {:name \"John\"}))
+  ```
   "
   ([m]
    (by {} m))
@@ -181,6 +183,7 @@
 
   Examples:
 
+  ```clojure
   ;; get all users
   (all :users)
 
@@ -189,6 +192,7 @@
 
   ;; get all with a HoneySQL query
   (all {:from [:users] :select [:id :name :username]})
+  ```
   "
   ([conn query]
    (all conn query {}))
@@ -220,8 +224,10 @@
 
   Examples:
 
+  ```clojure
   ;; Get the one user record where the username is \"jdoe\"
   (one {:from [:users] :where [:= :username \"jdoe\"]})
+  ```
   "
   ([conn query]
    (one conn query {}))
@@ -246,8 +252,10 @@
 
   Examples:
 
+  ```clojure
   ;; Get the one user record where the username is \"jdoe\"
   (one {:from [:users] :where [:= :username \"jdoe\"]})
+  ```
   "
   ([conn query]
    (one! conn query {}))
@@ -281,11 +289,13 @@
 
   Examples:
 
+  ```clojure
   ;; Get the record from the users table with id 2
   (get :users 2)
 
   ;; Get the record from the users table with user_id 2
   (get :users 2 {:primary-key :user_id})
+  ```
   "
   ([conn query id]
    (get conn query id {}))
@@ -315,11 +325,13 @@
 
   Examples:
 
+  ```clojure
   ;; Get the record from the users table with id 2
   (get! :users 2)
 
   ;; Get the record from the users table with user_id 2
   (get! :users 2 {:primary-key :user_id})
+  ```
   "
   ([conn query id]
    (get! conn query id {}))
@@ -348,9 +360,11 @@
 
   Examples:
 
+  ```clojure
   ;; Get the record from the users table where the name is \"John\" and the
   ;; username is \"jdoe\"
   (get-by :users {:name \"John\" :username \"jdoe\"})
+  ```
   "
   ([conn query m]
    (get-by conn query m {}))
@@ -379,9 +393,11 @@
 
   Examples:
 
+  ```clojure
   ;; Get the record from the users table where the name is \"John\" and the
   ;; username is \"jdoe\"
   (get-by! :users {:name \"John\" :username \"jdoe\"})
+  ```
   "
   ([conn query m]
    (get-by! conn query m {}))
@@ -408,8 +424,10 @@
 
   Examples:
 
+  ```clojure
   ;; Get the record count of the users table:
   (aggregate :users :count :id)
+  ```
   "
   [conn query aggregate field]
   (let [selector (aggregate-selector aggregate field)
@@ -431,6 +449,7 @@
 
   Examples:
 
+  ```clojure
   ;; Delete the user with id = 1
   (delete :users 1)
 
@@ -439,6 +458,7 @@
 
   ;; Delete user the user with :user_id = 1
   (delete :users 1 {:primary-key :user_id})
+  ```
   "
   ([conn table id-or-record]
    (delete conn table id-or-record {}))
@@ -452,8 +472,10 @@
 
   Examples:
 
+  ```clojure
   ;; delete all users with id > 15
   (delete-all :users {:where [:> :id 15]})
+  ```
   "
   ([conn table query]
    (delete-all conn table query {}))
@@ -474,8 +496,10 @@
 
   Examples:
 
+  ```clojure
   ;; Are there any users with the name John?
   (exists? (by :users {:name \"John\"}))
+  ```
   "
   ([conn query]
    (exists? conn query {}))
@@ -496,7 +520,9 @@
 
   Examples:
 
+  ```clojure
   (insert :users {:name \"John\" :username \"jdoe\"})
+  ```
   "
   ([conn table record]
    (insert conn table record {}))
@@ -531,8 +557,10 @@
 
   Examples:
 
+  ```clojure
   (insert-all :users [{:name \"John\" :username \"jdoe\"}
                       {:name \"Jane\" :last_name \"Doe\"}])
+  ```
   "
   ([conn table records]
    (insert-all conn table records {}))
@@ -565,12 +593,14 @@
 
   Examples:
 
+  ```clojure
   ;; Assume we have a record {:id 1 :name \"John\" :username \"jdoe\"}
   ;; Update John's name to Jane and leave the username as jdoe
   (update :users {:id 1 :name \"Jane\"})
 
   ;; Update John's name to Jane with the primary key being on the user_id column
   (update :users {:user_id 1 :name \"Jane\"} {:primary-key :user_id})
+  ```
   "
   ([conn table record]
    (update conn table record {}))
@@ -697,6 +727,7 @@
 
   Examples:
 
+  ```clojure
   ;; Simple configuration
   (defdb {:adapter \"postgresql\"
           :database-name \"my_database\"
@@ -725,6 +756,7 @@
           :maximum-pool-size 10
           :row-fn (partial cske/transform-keys csk/->kebab-case)
           :long-running-threshold 100})
+  ```
   "
   [config]
   `(do
