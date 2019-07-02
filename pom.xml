@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>tessellator</groupId>
   <artifactId>dbee</artifactId>
-  <version>0.1.1</version>
+  <version>0.1.2</version>
   <name>dbee</name>
   <description>A convenient API for executing HoneySQL queries</description>
   <url>https://github.com/tessellator/dbee</url>
@@ -16,7 +16,7 @@
   <scm>
     <connection>scm:git:git://github.com/tessellator/dbee.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/tessellator/dbee.git</developerConnection>
-    <tag>79ac2e0e9504092e49abc18efcd2c803131342ba</tag>
+    <tag>820086021c016a72eaf6b3960c99a1d6961de28b</tag>
     <url>https://github.com/tessellator/dbee</url>
   </scm>
   <dependencies>
