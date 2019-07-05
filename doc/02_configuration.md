@@ -122,9 +122,9 @@ require you to provide a database connection.
 > (require '[myproject.db :as db])
 ;; => nil
 
-> (dbee.core/all {:from [:users] :select [:*])
+> (db/all {:from [:users] :select [:*])
 ;; => ({:id 1 :name "John" :username "jdoe"} ...)
 
-> (dbee.core/get :users 1)
+> (db/get :users 1)
 ;; => {:id 1 :name "John" :username "jdoe"}
 ```
