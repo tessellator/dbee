@@ -58,7 +58,7 @@ Following is an example using the base API at the REPL.
 As discussed in the [introduction](/doc/01_introduction.md), one of the use
 cases to create a local database API based on the functions provided in
 `dbee.core`. The local API will contain a HikariCP connection pool and wrappers
-around the dbee query functions. [[dbee.core/defdb]] generates the API in the
+around the dbee query functions. `dbee.core/defdb` generates the API in the
 calling namespace.
 
 `defdb` accepts a configuration map as its argument. The map will be evaluated

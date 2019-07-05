@@ -13,7 +13,7 @@ described as follows:
 
 Note that maps are not considered abbreviated are equal to their expansion.
 
-The expansion happens in [[dbee.core/expand-query]]. This function should be
+The expansion happens in `dbee.core/expand-query`. This function should be
 used in query construction functions that you want to be able to accept
 abbreviated forms.
 
@@ -40,13 +40,13 @@ Those options include the following:
 
 ### Transactions
 
-dbee provides a macro [[dbee.core/with-transaction]] for executing queries
+dbee provides a macro `dbee.core/with-transaction` for executing queries
 inside of a transaction. The API is similar to that provided by java.jdbc.
 
 Transactions are committed unless they are rolled back using
-[[dbee.core/rollback]]. However, `rollback` will throw an exception if it is not
+`dbee.core/rollback`. However, `rollback` will throw an exception if it is not
 called from within a transaction. This is to help ensure correctness in
-transaction code. You may use [[dbee.core/in-transaction?]] to determine whether
+transaction code. You may use `dbee.core/in-transaction?` to determine whether
 the current execution is occurring within a transaction.
 
 Note that each of these functions will be generated as part of the local
