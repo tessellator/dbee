@@ -3,3 +3,5 @@
 .rebl/
 target/
 pom.xml.bak
+.clj-kondo
+.lsp
